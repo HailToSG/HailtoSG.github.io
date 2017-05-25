@@ -1,0 +1,148 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC51jZ3Kkit9iNOoCtS1nkR_5a647cZdkg"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="select.js"></script>
+</head>
+<body>
+<div>
+  <div id="map-canvas"></div>
+  <div class="hr vpad"></div>
+  <div>
+	
+    <table>
+        <tr>
+            <td colspan="2" class="hook"><b>Configuration</b></td>
+        </tr>
+        <tr>
+            <td class="hook">Способ передвижения: </td>
+            <td class="polet">
+			<form action="#">
+    <p>
+			 <label class="hook" class="label">Cпособ передвижения </label>
+                <select class="turnintodropdown" id="travel-type">
+				<option value="DRIVING">Автомобиль</option>
+                    <option value="DRIVING">Автомобиль</option>
+                    <option value="BICYCLING">Велосипед</option>
+                    <option value="WALKING">Пешком</option>
+					 </p>
+                </select>
+				</form>
+            </td>
+        </tr>
+        <tr>
+            <td class="hook">Avoid Highways:</td>
+            <td class="hook">
+                <select class="hook" id="avoid-highways">
+                    <option value="1">Enabled</option>
+                    <option value="0" selected="selected">Disabled</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="hook">Размер популяции </td>
+            <td>
+                <select id="population-size" class="hook">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50" selected="selected">50</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="hook">Мутации</td>
+            <td>
+                <select id="mutation-rate" class="hook">
+                    <option value="0.00">0.00</option>
+                    <option value="0.05">0.01</option>
+                    <option value="0.05">0.05</option>
+                    <option value="0.1" selected="selected">0.1</option>
+                    <option value="0.2">0.2</option>
+                    <option value="0.4">0.4</option>
+                    <option value="0.7">0.7</option>
+                    <option value="1">1.0</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td  class="hook">Crossover Rate: </td>
+            <td>
+                <select id="crossover-rate" class="hook">
+                    <option value="0.0">0.0</option>
+                    <option value="0.1">0.1</option>
+                    <option value="0.2">0.2</option>
+                    <option value="0.3">0.3</option>
+                    <option value="0.4">0.4</option>
+                    <option value="0.5" selected="selected">0.5</option>
+                    <option value="0.6">0.6</option>
+                    <option value="0.7">0.7</option>
+                    <option value="0.8">0.8</option>
+                    <option value="0.9">0.9</option>
+                    <option value="1">1.0</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td  class="hook">Elitism: </td>
+            <td>
+                <select id="elitism" class="hook">
+                    <option value="1" selected="selected">Enabled</option>
+                    <option value="0">Disabled</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="hook">Максимум поколений </td>
+            <td>
+                <select id="generations" class="hook">
+                    <option value="20">20</option>
+                    <option value="50" selected="selected">50</option>
+                    <option value="100">100</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr id="ga-buttons">
+            <td colspan="2"></td>
+        </tr>
+		<tr>
+     <td colspan="2" class="abs">
+	 <div class="wrapper_body">
+     <div class="cbm_wrap ">
+     <h1>Заблудились?</h1>
+     <p>1. Выберите пункты, которые хотите посетить.<br/>
+		2. Нажмите кнопку "проложить маршрут".<br/>
+		3. Чтобы проложить новый маршрут, нажмите "Очисить карту" и введите новые пункты.</p>
+     </div>
+	 </td>
+        </tr>
+    </table>
+	<div>
+	<div class="nfo">
+			<div class="points">
+					<p>Количество точек маршрута <br/><br/>
+					<span id="destinations-count">&nbsp;</span></p></div>
+        
+			<div class="ga-info">
+					<p>Поколения <br/><br/><span id="generations-passed">&nbsp;</span></p></div>
+        
+        <div class="ga-info" class="time">
+            <p>Время прохождения маршрута <br/><br/><span id="best-time">&nbsp;</span></p></div>
+        </tr>
+		</div>
+	<div class="buttones"><button class="push_button red" id="find-route">Проложить маршрут</button> <button class="push_button blue" id="clear-map">Очистить карту</button></div>
+ </div>
+</div>	
+   
+</div>
+
+</body>
+</html>
