@@ -284,6 +284,8 @@ height: 200px;
 	background: rgba(64, 64, 69, 0.6);	
     margin: 20px auto;
     display: block;
+	padding: 0px 3px;
+	
 }
 .nfo p {
 	height:5vh;
